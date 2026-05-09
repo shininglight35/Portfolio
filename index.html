@@ -359,7 +359,7 @@ for the frontend and PHP with MySQL for the backend.
     <div class="projects">
 
       <div class="project-card">
-        <img src="bestthesis.png" alt="">
+        <img src="bestthesis.png" alt="Best Thesis Certificate" onclick="openLightbox(this.src)" style="cursor: pointer;">
         <div class="project-content">
           <h4>Best Thesis for BulSU BS CpE Research Colloquium and Thesis Exhibit 2025</h4>
         </div>
@@ -367,7 +367,7 @@ for the frontend and PHP with MySQL for the backend.
       </div>
 
       <div class="project-card">
-        <img src="breadboarding.png" alt="">
+        <img src="breadboarding.png" alt="Breadboarding Certificate" onclick="openLightbox(this.src)" style="cursor: pointer;">
         <div class="project-content">
           <h4>Regionals Champion in 7th CPE Challenge: Breadboarding Competition 2024</h4>
         </div>
@@ -383,7 +383,7 @@ for the frontend and PHP with MySQL for the backend.
     <div class="projects">
 
       <div class="project-card">
-        <img src="HCCDA.png" alt="">
+        <img src="HCCDA.png" alt="HCCDA Certificate" onclick="openLightbox(this.src)" style="cursor: pointer;">
         <div class="project-content">
           <h4>HCCDA-Tech Essentials Course</h4>
         </div>
@@ -391,7 +391,7 @@ for the frontend and PHP with MySQL for the backend.
       </div>
 
       <div class="project-card">
-        <img src="conceptsofcloud.png" alt="">
+        <img src="conceptsofcloud.png" alt="Cloud Basics Certificate" onclick="openLightbox(this.src)" style="cursor: pointer;">
         <div class="project-content">
           <h4>Cloud Basics: Development and Basic Concepts</h4>
         </div>
@@ -399,7 +399,7 @@ for the frontend and PHP with MySQL for the backend.
       </div>
 
       <div class="project-card">
-        <img src="searchandai.png" alt="">
+        <img src="searchandai.png" alt="Search and AI Certificate" onclick="openLightbox(this.src)" style="cursor: pointer;">
         <div class="project-content">
           <h4>Search and AI</h4>
         </div>
@@ -407,7 +407,7 @@ for the frontend and PHP with MySQL for the backend.
       </div>
 
       <div class="project-card">
-        <img src="HCIA.png" alt="">
+        <img src="HCIA.png" alt="HCIA-AI Certificate" onclick="openLightbox(this.src)" style="cursor: pointer;">
         <div class="project-content">
           <h4>HCIA-AI V3.5 Course</h4>
         </div>
@@ -415,7 +415,7 @@ for the frontend and PHP with MySQL for the backend.
       </div>
 
       <div class="project-card">
-        <img src="overviewofai.png" alt="">
+        <img src="overviewofai.png" alt="AI Basic Certificate" onclick="openLightbox(this.src)" style="cursor: pointer;">
         <div class="project-content">
           <h4>AI Basic: Overview of AI</h4>
         </div>
@@ -423,7 +423,7 @@ for the frontend and PHP with MySQL for the backend.
       </div>
 
       <div class="project-card">
-        <img src="ethicalhacker.png" alt="">
+        <img src="ethicalhacker.png" alt="Ethical Hacker Certificate" onclick="openLightbox(this.src)" style="cursor: pointer;">
         <div class="project-content">
           <h4>Ethical Hacker</h4>
         </div>
@@ -431,7 +431,7 @@ for the frontend and PHP with MySQL for the backend.
       </div>
 
       <div class="project-card">
-        <img src="cybersecurity.png" alt="">
+        <img src="cybersecurity.png" alt="Cybersecurity Certificate" onclick="openLightbox(this.src)" style="cursor: pointer;">
         <div class="project-content">
           <h4>Introduction to Cybersecurity</h4>
         </div>
@@ -439,7 +439,7 @@ for the frontend and PHP with MySQL for the backend.
       </div>
 
       <div class="project-card">
-        <img src="packettracer.png" alt="">
+        <img src="packettracer.png" alt="Packet Tracer Certificate" onclick="openLightbox(this.src)" style="cursor: pointer;">
         <div class="project-content">
           <h4>Introduction to Packet Tracer</h4>
         </div>
@@ -483,6 +483,23 @@ for the frontend and PHP with MySQL for the backend.
     // Fade in sections on scroll
     const sections = document.querySelectorAll("section");
 
+    function openLightbox(src) {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+  
+      lightboxImg.src = src;
+      lightbox.style.display = "flex";
+  // Prevent scrolling while looking at the image
+      document.body.style.overflow = "hidden"; 
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      lightbox.style.display = "none";
+  // Re-enable scrolling
+      document.body.style.overflow = "auto";
+    }
+
     const revealSection = () => {
       sections.forEach(section => {
         const sectionTop = section.getBoundingClientRect().top;
@@ -503,6 +520,9 @@ for the frontend and PHP with MySQL for the backend.
     window.addEventListener("scroll", revealSection);
     revealSection();
   </script>
-
+<div id="lightbox" onclick="closeLightbox()" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); cursor: pointer; align-items: center; justify-content: center;">
+  <span style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold;">&times;</span>
+  <img id="lightbox-img" src="" style="max-width: 90%; max-height: 80%; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+</div>
 </body>
 </html>
